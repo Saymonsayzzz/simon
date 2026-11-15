@@ -1,8 +1,102 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import type { CaseSection as Section } from "@/data/cases";
 import { fadeUp } from "@/lib/motion";
+
+type ResultSection = Extract<Section, { type: "result" }>;
+
+function ResultBlock({ section }: { section: ResultSection }) {
+  const [open, setOpen] = useState(false);
+  const hasDetails = !!section.details && section.details.length > 0;
+
+  return (
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-15%" }}
+      className="mx-auto w-full max-w-[1060px] px-6 py-16"
+    >
+      <div className="rounded-[24px] border border-dashed border-white/25 p-6 md:p-10">
+        <h3 className="text-[24px] font-semibold leading-[1.2] text-white">
+          {section.title ?? "Результат"}
+        </h3>
+
+        <dl className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
+          {section.metrics.map((m, i) => (
+            <div key={i}>
+              <dt className="font-display text-[48px] leading-none text-accent md:text-[56px]">
+                {m.value}
+              </dt>
+              <dd className="mt-3 max-w-[260px] text-[15px] leading-[1.4] text-muted">
+                {m.label}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        {section.note && (
+          <p className="mt-8 text-[14px] leading-[1.45] text-muted">
+            {section.note}
+          </p>
+        )}
+
+        {hasDetails && (
+          <div className="mt-4">
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              data-cursor="link"
+              className="inline-flex items-center gap-2 text-[15px] text-white transition hover:text-accent"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden
+                className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+              >
+                <path
+                  d="M4 6l4 4 4-4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Подробнее
+            </button>
+            <AnimatePresence initial={false}>
+              {open && (
+                <motion.ul
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  {section.details!.map((d, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-3 pt-3 text-[16px] leading-[1.5] text-white/85"
+                    >
+                      <span className="mt-[10px] h-[6px] w-[6px] flex-none rounded-full bg-accent" />
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
 export function CaseSection({ section }: { section: Section }) {
   if (section.type === "two-column") {
@@ -85,6 +179,10 @@ export function CaseSection({ section }: { section: Section }) {
         ))}
       </motion.div>
     );
+  }
+
+  if (section.type === "result") {
+    return <ResultBlock section={section} />;
   }
 
   if (section.type === "steps") {
