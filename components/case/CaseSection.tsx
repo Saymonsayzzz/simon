@@ -113,7 +113,25 @@ export function CaseSection({ section }: { section: Section }) {
             <h3 className="text-[24px] font-semibold leading-[1.2] text-white">
               {col.title}
             </h3>
-            <p className="mt-4 text-[18px] leading-[1.45] text-muted">{col.body}</p>
+            {col.body && (
+              <p className="mt-4 text-[18px] leading-[1.45] text-muted">
+                {col.body}
+              </p>
+            )}
+            {col.metrics && (
+              <dl className="mt-6 space-y-5">
+                {col.metrics.map((m, j) => (
+                  <div key={j} className="flex items-baseline gap-4">
+                    <dt className="font-display w-[150px] flex-none whitespace-nowrap text-[34px] leading-none text-accent md:text-[36px]">
+                      {m.value}
+                    </dt>
+                    <dd className="text-[16px] leading-[1.4] text-muted">
+                      {m.label}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
           </div>
         ))}
       </motion.div>
