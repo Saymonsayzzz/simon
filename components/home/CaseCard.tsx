@@ -74,6 +74,41 @@ function CardMedia({ data }: { data: Case }) {
     );
   }
 
+  if (media.kind === "checkout-showcase") {
+    return (
+      <div className="absolute inset-x-2 bottom-2 top-[226px] overflow-hidden rounded-[24px] bg-[#4b3bd6]">
+        <video
+          src={media.video}
+          poster={media.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,8,30,0.55),transparent_55%)]"
+        />
+        <div className="absolute -bottom-[12%] left-1/2 w-[86%] -translate-x-1/2 md:w-[64%]">
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={media.screenshot}
+              alt="Новая касса Karuna: депозит, выплаты и история в одном окне"
+              className="w-full rounded-[18px] shadow-[0_30px_80px_-10px_rgba(8,6,40,0.75)] ring-1 ring-white/15"
+            />
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
   if (media.kind === "phones-trio") {
     return (
       <div className="pointer-events-none absolute inset-x-0 -bottom-12 z-0 flex h-[600px] items-end justify-center overflow-hidden">
