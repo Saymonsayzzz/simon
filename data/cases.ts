@@ -45,12 +45,7 @@ export type PreviewMedia =
   | { kind: "phone-single"; src: string }
   | { kind: "laptop"; src: string }
   | { kind: "video"; src: string; poster?: string }
-  | {
-      kind: "checkout-showcase";
-      video: string;
-      poster: string;
-      screenshot: string;
-    };
+  | { kind: "mac-mockup"; screenshot: string; alt: string };
 
 export const cases: Case[] = [
   {
@@ -64,10 +59,9 @@ export const cases: Case[] = [
       tags: ["Worldwide Trading Platform", "Billing"],
       description: "Дизайн кассы для Финтеха",
       media: {
-        kind: "checkout-showcase",
-        video: "/cases/karuna-cover-clean.mp4",
-        poster: "/cases/karuna-cover-poster.jpg",
+        kind: "mac-mockup",
         screenshot: "/cases/Kassa.webp",
+        alt: "Новая касса Karuna: депозит, выплаты и история в одном окне",
       },
     },
     sections: [
