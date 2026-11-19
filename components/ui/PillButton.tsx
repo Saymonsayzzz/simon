@@ -22,10 +22,10 @@ export function PillButton({
   className,
 }: Props) {
   const cls = clsx(
-    "inline-flex items-center justify-center gap-1 rounded-full px-4 py-3 text-[16px] font-semibold tracking-[0.32px] whitespace-nowrap transition-[transform,background] duration-200",
-    variant === "filled" && "bg-accent text-white hover:scale-[1.03]",
+    "inline-flex items-center justify-center gap-1 rounded-full px-4 py-3 font-semibold tracking-[0.32px] transition-[transform,background] duration-200",
+    variant === "filled" && "whitespace-nowrap bg-accent text-[16px] text-white hover:scale-[1.03]",
     variant === "outline" &&
-      "border-2 border-accent text-white hover:bg-accent/10",
+      "border-2 border-accent text-[13px] text-white hover:bg-accent/10 md:text-[16px]",
     className,
   );
 

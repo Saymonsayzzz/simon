@@ -26,8 +26,8 @@ function ResultBlock({ section }: { section: ResultSection }) {
 
         <dl className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
           {section.metrics.map((m, i) => (
-            <div key={i}>
-              <dt className="font-display text-[48px] leading-none text-accent md:text-[56px]">
+            <div key={i} className="min-w-0">
+              <dt className="font-display break-words text-[40px] leading-tight text-accent sm:text-[48px] md:text-[56px]">
                 {m.value}
               </dt>
               <dd className="mt-3 max-w-[260px] text-[15px] leading-[1.4] text-muted">
@@ -109,7 +109,7 @@ export function CaseSection({ section }: { section: Section }) {
         className="mx-auto grid w-full max-w-[1060px] grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2"
       >
         {[section.left, section.right].map((col, i) => (
-          <div key={i}>
+          <div key={i} className="min-w-0">
             <h3 className="text-[24px] font-semibold leading-[1.2] text-white">
               {col.title}
             </h3>
@@ -119,13 +119,16 @@ export function CaseSection({ section }: { section: Section }) {
               </p>
             )}
             {col.metrics && (
-              <dl className="mt-6 space-y-5">
+              <dl className="mt-6 divide-y divide-border border-y border-border">
                 {col.metrics.map((m, j) => (
-                  <div key={j} className="flex items-baseline gap-4">
-                    <dt className="font-display w-[150px] flex-none whitespace-nowrap text-[34px] leading-none text-accent md:text-[36px]">
+                  <div
+                    key={j}
+                    className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-[minmax(132px,0.7fr)_1fr] sm:items-start sm:gap-5"
+                  >
+                    <dt className="font-display whitespace-nowrap text-[34px] leading-none tracking-[-0.02em] text-accent md:text-[40px]">
                       {m.value}
                     </dt>
-                    <dd className="text-[16px] leading-[1.4] text-muted">
+                    <dd className="max-w-[280px] text-[15px] leading-[1.45] text-muted md:text-[16px]">
                       {m.label}
                     </dd>
                   </div>
@@ -185,9 +188,9 @@ export function CaseSection({ section }: { section: Section }) {
         {section.items.map((s, i) => (
           <div
             key={i}
-            className="rounded-[24px] border border-border bg-surface px-6 py-8"
+            className="min-w-0 rounded-[24px] border border-border bg-surface px-6 py-8"
           >
-            <div className="font-display text-[64px] leading-none text-white md:text-[80px]">
+            <div className="font-display break-words text-[clamp(36px,10vw,56px)] leading-tight text-white md:text-[clamp(40px,5vw,56px)]">
               {s.value}
             </div>
             <div className="mt-4 text-[16px] leading-[1.4] text-muted">

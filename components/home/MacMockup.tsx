@@ -47,7 +47,7 @@ export function MacMockup({ src, alt }: Props) {
       ref={areaRef}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className="absolute inset-0 flex items-start justify-center overflow-hidden"
+      className="absolute inset-0 flex items-center justify-center overflow-hidden pb-14 md:items-start md:pb-0"
       style={{ perspective: 1600 }}
     >
       <motion.div
@@ -59,7 +59,7 @@ export function MacMockup({ src, alt }: Props) {
       <motion.div
         animate={reduceMotion ? undefined : { y: [0, -14, 0] }}
         transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
-        className="relative mt-8 w-[min(88%,580px)] md:mt-10"
+        className="relative w-[min(88%,580px)] md:mt-10"
       >
         <motion.div
           style={reduceMotion ? undefined : { rotateX, rotateY }}

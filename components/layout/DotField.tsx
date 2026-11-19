@@ -206,7 +206,7 @@ export function DotField() {
   return (
     <div
       ref={containerRef}
-      className="relative h-full w-full overflow-hidden"
+      className="absolute inset-0 overflow-hidden"
     >
       <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -215,7 +215,7 @@ export function DotField() {
           href="https://t.me/saymonsayzzz"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-display group pointer-events-auto inline-flex items-center gap-4 rounded-full border-2 border-white bg-footer px-10 py-6 text-[clamp(28px,4vw,52px)] font-black uppercase leading-none tracking-[-0.02em] text-white transition-colors duration-300 hover:bg-white hover:text-footer md:gap-5 md:px-14 md:py-8"
+          className="font-display group pointer-events-auto inline-flex max-w-[calc(100%_-_32px)] items-center gap-3 rounded-full border-2 border-white bg-footer px-6 py-5 text-[clamp(24px,4vw,52px)] font-black uppercase leading-none tracking-[-0.02em] text-white transition-colors duration-300 hover:bg-white hover:text-footer md:gap-5 md:px-14 md:py-8"
           data-cursor="link"
         >
           <span>Связаться</span>

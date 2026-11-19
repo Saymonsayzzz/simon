@@ -7,7 +7,7 @@ import { fadeUp, stagger } from "@/lib/motion";
 
 export function Hero() {
   return (
-    <section className="relative flex h-screen min-h-[720px] w-full flex-col overflow-hidden bg-background">
+    <section className="relative flex min-h-svh w-full flex-col overflow-hidden bg-background md:h-screen md:min-h-[720px]">
       {/* WebGL aurora background */}
       <AuroraCanvas />
 
@@ -34,11 +34,11 @@ export function Hero() {
         variants={stagger}
         initial="hidden"
         animate="show"
-        className="relative z-10 mx-auto flex w-full max-w-[1060px] flex-1 flex-col items-center justify-center px-6 pt-[120px] pb-24 text-center md:pt-[140px]"
+        className="relative z-10 mx-auto flex w-full max-w-[1060px] flex-1 flex-col items-center justify-center px-5 pt-20 pb-32 text-center md:px-6 md:pt-[140px] md:pb-24"
       >
         <motion.h1
           variants={fadeUp}
-          className="font-display text-[64px] font-bold leading-[1.05] tracking-[-0.02em] text-white [text-shadow:0_2px_30px_rgba(0,0,0,0.55)] md:text-[96px]"
+          className="font-display text-[clamp(48px,16vw,64px)] font-bold leading-[1.05] tracking-[-0.02em] text-white [text-shadow:0_2px_30px_rgba(0,0,0,0.55)] md:text-[96px]"
         >
           Semyon
         </motion.h1>
@@ -52,13 +52,14 @@ export function Hero() {
           variants={fadeUp}
           className="mt-8 max-w-[720px] text-balance text-[18px] leading-[1.45] text-white/85 md:text-[22px]"
         >
-          Целеустремлённый профессионал, который знает как достичь результат,
-          способен выстроить дизайн процессы и разработать продукт с нуля
+          Нахожу места, где пользователь застревает, а продукт теряет деньги.
+          Разбираюсь в причинах и проектирую решения, которые помогают двигаться
+          дальше.
         </motion.p>
 
         <motion.div
           variants={fadeUp}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-8 flex flex-wrap items-center justify-center gap-2 md:mt-10 md:gap-4 [&>a]:px-3 [&>a]:text-[14px] md:[&>a]:px-4 md:[&>a]:text-[16px]"
         >
           <PillButton href="#" external withIcon>
             CV

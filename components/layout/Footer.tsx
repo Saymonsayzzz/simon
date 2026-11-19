@@ -4,13 +4,13 @@ import { DotField } from "./DotField";
 
 export function Footer() {
   return (
-    <footer className="relative flex h-screen w-full flex-col overflow-hidden bg-footer text-white">
-      <div className="relative flex-1 border-b border-white/15">
+    <footer className="relative flex min-h-svh w-full flex-col overflow-hidden bg-footer text-white md:h-screen">
+      <div className="relative min-h-[320px] flex-1 border-b border-white/15 md:min-h-0">
         <DotField />
       </div>
 
       {/* Bottom grid */}
-      <div className="grid grid-cols-2 gap-x-6 gap-y-10 px-6 py-12 text-[14px] uppercase tracking-[0.16em] md:grid-cols-4 md:px-[60px]">
+      <div className="grid shrink-0 grid-cols-1 gap-x-4 gap-y-8 px-6 py-10 text-[14px] uppercase tracking-[0.16em] min-[360px]:grid-cols-2 md:grid-cols-4 md:gap-x-6 md:gap-y-10 md:px-[60px] md:py-12">
         <FooterCol num="[02]" title="Телеграм">
           <a
             href="https://t.me/saymonsayzzz"
@@ -25,11 +25,11 @@ export function Footer() {
 
         <FooterCol num="[03]" title="Телефон">
           <a
-            href="tel:+79625800080"
+            href="tel:+79625800068"
             className="hover:text-accent"
             data-cursor="link"
           >
-            +7 (962) 580-00-80
+            +7 (962) 580-00-68
           </a>
         </FooterCol>
 
@@ -60,10 +60,10 @@ function FooterCol({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex min-w-0 flex-col gap-2">
       <span className="text-[11px] text-muted-2">{num}</span>
       <span className="text-muted-2">{title}</span>
-      <span className="text-[16px] normal-case tracking-normal text-white">
+      <span className="text-[16px] normal-case tracking-normal break-words text-white">
         {children}
       </span>
     </div>

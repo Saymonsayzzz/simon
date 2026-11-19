@@ -17,7 +17,7 @@ export function CaseCard({ data }: { data: Case }) {
       whileInView="show"
       viewport={{ once: true, margin: "-15%" }}
       className={clsx(
-        "group relative h-[700px] w-full overflow-hidden rounded-[32px] bg-surface backdrop-blur-sm",
+        "group relative flex h-[580px] min-w-0 w-full flex-col overflow-hidden rounded-[32px] bg-surface backdrop-blur-sm md:block md:h-[700px]",
       )}
     >
       <Link
@@ -26,13 +26,13 @@ export function CaseCard({ data }: { data: Case }) {
         aria-label={`Открыть кейс ${data.title}`}
         data-cursor="link"
       />
-      <div className="relative z-10 flex flex-col items-center gap-4 px-6 pt-8 text-center md:px-8">
+      <div className="relative z-10 flex shrink-0 flex-col items-center gap-4 px-4 pt-8 pb-6 text-center md:px-8 md:pb-0">
         <h3 className="font-display text-[36px] leading-[1.2] tracking-[0.01em] text-white">
           {data.title}
         </h3>
         <div className="flex flex-wrap items-start justify-center gap-3">
           {data.preview.tags.map((tag) => (
-            <PillButton key={tag} variant="outline">
+            <PillButton key={tag} variant="outline" className="max-w-full whitespace-normal md:whitespace-nowrap">
               {tag}
             </PillButton>
           ))}
@@ -41,7 +41,9 @@ export function CaseCard({ data }: { data: Case }) {
           {data.preview.description}
         </p>
       </div>
-      <CardMedia data={data} />
+      <div className="relative min-h-0 flex-1 overflow-hidden md:contents">
+        <CardMedia data={data} />
+      </div>
       <ArrowCta className="absolute bottom-6 right-6 z-10 md:bottom-8 md:right-8" />
     </motion.div>
   );
@@ -52,7 +54,7 @@ function CardMedia({ data }: { data: Case }) {
 
   if (media.kind === "placeholder") {
     return (
-      <div className="absolute inset-x-2 bottom-2 top-[226px] overflow-hidden rounded-[24px] bg-surface-2">
+      <div className="absolute inset-x-2 bottom-2 top-0 overflow-hidden rounded-[24px] bg-surface-2 md:top-[226px]">
         <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_100%,rgba(84,150,249,0.18),transparent_70%)]" />
       </div>
     );
@@ -60,7 +62,7 @@ function CardMedia({ data }: { data: Case }) {
 
   if (media.kind === "video") {
     return (
-      <div className="absolute inset-x-2 bottom-2 top-[226px] overflow-hidden rounded-[24px] bg-surface-2">
+      <div className="absolute inset-x-2 bottom-2 top-0 overflow-hidden rounded-[24px] bg-surface-2 md:top-[226px]">
         <video
           src={media.src}
           poster={media.poster}
@@ -77,7 +79,7 @@ function CardMedia({ data }: { data: Case }) {
 
   if (media.kind === "mac-mockup") {
     return (
-      <div className="absolute inset-x-2 bottom-2 top-[226px] overflow-hidden rounded-[24px] bg-surface-2">
+      <div className="absolute inset-x-2 bottom-2 top-0 overflow-hidden rounded-[24px] bg-surface-2 md:top-[226px]">
         <MacMockup src={media.screenshot} alt={media.alt} />
       </div>
     );
@@ -86,8 +88,9 @@ function CardMedia({ data }: { data: Case }) {
   if (media.kind === "phones-trio") {
     return (
       <div className="pointer-events-none absolute inset-x-0 -bottom-12 z-0 flex h-[600px] items-end justify-center overflow-hidden">
+        <div aria-hidden className="absolute inset-x-2 bottom-2 top-0 rounded-[24px] bg-surface-2" />
         <div className="absolute bottom-[-80px] left-1/2 h-[423px] w-[318px] -translate-x-1/2 rounded-[100px] bg-[radial-gradient(circle_at_50%_60%,rgba(84,150,249,0.6),rgba(255,255,255,0.12)_60%,transparent_70%)] blur-[80px]" />
-        <div className="relative h-[560px] w-[560px] origin-bottom scale-[0.7] sm:scale-100">
+        <div className="relative h-[560px] w-[560px] shrink-0 origin-bottom scale-[0.55] sm:scale-[0.65] md:scale-100">
           {/* eslint-disable @next/next/no-img-element */}
           <img
             src="/cases/aff-phone-1.png"
@@ -112,13 +115,14 @@ function CardMedia({ data }: { data: Case }) {
 
   if (media.kind === "phone-single") {
     return (
-      <div className="pointer-events-none absolute inset-x-0 -bottom-10 z-0 flex h-[480px] items-end justify-center">
+      <div className="pointer-events-none absolute inset-x-0 -bottom-10 z-0 flex h-[380px] items-end justify-center md:h-[480px]">
+        <div aria-hidden className="absolute inset-x-2 bottom-2 top-0 rounded-[24px] bg-surface-2" />
         <div className="absolute bottom-0 left-1/2 h-[423px] w-[318px] -translate-x-1/2 rounded-[100px] bg-[radial-gradient(circle_at_50%_60%,rgba(84,150,249,0.6),rgba(255,255,255,0.12)_60%,transparent_70%)] blur-[80px]" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={media.src}
           alt=""
-          className="relative h-[480px] w-[280px] object-contain object-bottom"
+          className="relative h-[380px] w-[220px] object-contain object-bottom md:h-[480px] md:w-[280px]"
         />
       </div>
     );
@@ -127,6 +131,7 @@ function CardMedia({ data }: { data: Case }) {
   // laptop
   return (
     <div className="pointer-events-none absolute inset-x-0 -bottom-8 z-0">
+      <div aria-hidden className="absolute inset-x-2 bottom-2 top-0 rounded-[24px] bg-surface-2" />
       <div className="absolute bottom-[-100px] left-1/2 h-[686px] w-[516px] -translate-x-1/2 rounded-[100px] bg-[radial-gradient(circle_at_50%_60%,rgba(84,150,249,0.6),rgba(255,255,255,0.12)_60%,transparent_70%)] blur-[100px]" />
       <div className={clsx("relative w-full", variant === "wide" ? "h-[520px]" : "h-[440px]")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
