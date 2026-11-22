@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CustomCursor } from "@/components/layout/CustomCursor";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-});
 
 
 export const metadata: Metadata = {
   title: "Semyon — Product Designer",
   description:
-    "Портфолио продуктового дизайнера. Целеустремлённый профессионал, который знает как достичь результата.",
+    "Портфолио Семёна Шевченко. Финтех-продукты, партнёрские платформы и дизайн-системы.",
 };
 
 export default function RootLayout({
@@ -23,7 +16,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${inter.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <body className="min-h-full bg-background text-foreground" data-cursor-active="true">
         <SmoothScroll />
