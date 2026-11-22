@@ -3,7 +3,7 @@ import { cases } from "@/data/cases";
 export function PortfolioHero() {
   return (
     <section id="top" className="portfolio-hero portfolio-wrap">
-      <div className="portfolio-hero__eyebrow">Product designer · 5+ лет в финтехе</div>
+      <div className="portfolio-hero__eyebrow">Product designer</div>
       <h1>
         Проектирую продукты,
         <br />
@@ -16,7 +16,7 @@ export function PortfolioHero() {
         </div>
         <div>
           <span>Фокус</span>
-          <p>Платёжные сценарии, активация, retention и дизайн-системы.</p>
+          <p>Платёжные сценарии, партнёрские кабинеты, retention, ИИ и skills для оптимизации дизайн-процессов.</p>
         </div>
       </div>
       <div className="portfolio-index" aria-label="Избранные кейсы">
