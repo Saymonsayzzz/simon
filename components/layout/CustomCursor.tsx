@@ -10,8 +10,8 @@ export function CustomCursor() {
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
-    setEnabled(fine);
-    if (!fine) return;
+    const stateFrame = window.requestAnimationFrame(() => setEnabled(fine));
+    if (!fine) return () => window.cancelAnimationFrame(stateFrame);
 
     let dx = -100,
       dy = -100,
@@ -53,6 +53,7 @@ export function CustomCursor() {
 
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
+      window.cancelAnimationFrame(stateFrame);
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
     };
