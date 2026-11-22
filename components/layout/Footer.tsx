@@ -4,9 +4,16 @@ import { DotField } from "./DotField";
 
 export function Footer() {
   return (
-    <footer className="relative flex min-h-svh w-full flex-col overflow-hidden bg-footer text-white md:h-screen">
+    <footer id="contact" className="relative flex min-h-svh w-full flex-col overflow-hidden bg-footer text-white md:h-screen">
       <div className="relative min-h-[320px] flex-1 border-b border-white/15 md:min-h-0">
         <DotField />
+      </div>
+
+      <div className="portfolio-wrap py-10 md:py-16">
+        <p className="text-[13px] font-mono text-muted-2">Контакты</p>
+        <h2 className="mt-4 max-w-[720px] font-display text-[clamp(42px,7vw,82px)] font-medium leading-[0.98] tracking-[-0.05em] text-white">
+          Давайте обсудим следующий продукт.
+        </h2>
       </div>
 
       {/* Bottom grid */}
@@ -34,14 +41,8 @@ export function Footer() {
         </FooterCol>
 
         <FooterCol num="[04]" title="Резюме">
-          <a href="#" className="hover:text-accent" data-cursor="link">
+          <a href="/CV_Semyon_Shevchenko.pdf" target="_blank" rel="noreferrer" className="hover:text-accent" data-cursor="link">
             Скачать CV ↗
-          </a>
-        </FooterCol>
-
-        <FooterCol num="[05]" title="HH.ru">
-          <a href="#" className="hover:text-accent" data-cursor="link">
-            Открыть профиль ↗
           </a>
         </FooterCol>
       </div>
