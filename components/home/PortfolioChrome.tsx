@@ -6,12 +6,17 @@ import { cases, type CaseSlug } from "@/data/cases";
 
 export function PortfolioChrome() {
   const [active, setActive] = useState(cases[0]?.slug ?? "");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     const targets = cases
       .map((item) => document.getElementById(item.slug))
       .filter((item): item is HTMLElement => Boolean(item));
-    if (!targets.length) return;
+    if (!targets.length) return () => window.removeEventListener("scroll", onScroll);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,12 +30,15 @@ export function PortfolioChrome() {
     );
 
     targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
     <>
-      <header className="portfolio-header">
+      <header className={`portfolio-header${scrolled ? " is-scrolled" : ""}`}>
         <div className="portfolio-wrap portfolio-header__inner">
           <Link href="#top" className="portfolio-brand" aria-label="В начало">
             S. Shevchenko
@@ -71,8 +79,8 @@ export function PortfolioChrome() {
             <span>0{index + 1}</span>
           </a>
         ))}
-        <a href="#contact" aria-label="Контакты">
-          <span>↘</span>
+        <a href="#contact" aria-label="Как я работаю">
+          <span>как</span>
         </a>
       </nav>
     </>
