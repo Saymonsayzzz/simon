@@ -288,14 +288,12 @@ html.lenis body {
 }
 
 .portfolio-hero__eyebrow,
-.portfolio-hero h1,
 .portfolio-hero__meta > div,
 .portfolio-index__row {
   animation: portfolio-rise 700ms cubic-bezier(0.2, 0, 0, 1) both;
 }
 
 .portfolio-hero__eyebrow { animation-delay: 80ms; }
-.portfolio-hero h1 { animation-delay: 150ms; }
 .portfolio-hero__meta > div:nth-child(1) { animation-delay: 240ms; }
 .portfolio-hero__meta > div:nth-child(2) { animation-delay: 300ms; }
 .portfolio-index__row:nth-child(1) { animation-delay: 360ms; }
@@ -313,6 +311,23 @@ html.lenis body {
   line-height: 0.99;
   letter-spacing: -0.055em;
 }
+
+.portfolio-hero__line {
+  display: block;
+  overflow: hidden;
+}
+
+.portfolio-hero__line > span {
+  display: block;
+  opacity: 0;
+  transform: translateY(110%);
+  animation: portfolio-line-rise 760ms cubic-bezier(0.2, 0, 0, 1) both;
+  will-change: transform, opacity;
+}
+
+.portfolio-hero__line:nth-child(1) > span { animation-delay: 150ms; }
+.portfolio-hero__line:nth-child(2) > span { animation-delay: 220ms; }
+.portfolio-hero__line:nth-child(3) > span { animation-delay: 290ms; }
 
 .portfolio-hero h1 em {
   color: var(--accent);
@@ -478,6 +493,11 @@ html.lenis body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes portfolio-line-rise {
+  from { opacity: 0; transform: translateY(110%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 900px) {
   .portfolio-wrap { width: min(100% - 48px, 720px); }
   .portfolio-rail { display: none; }
@@ -530,8 +550,12 @@ html.lenis body {
 @media (prefers-reduced-motion: reduce) {
   .portfolio-hero::after { animation: none; }
   .portfolio-hero__eyebrow,
-  .portfolio-hero h1,
   .portfolio-hero__meta > div,
   .portfolio-index__row { animation: none; }
+  .portfolio-hero__line > span {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
   .portfolio-page * { scroll-behavior: auto !important; }
 }
