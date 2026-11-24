@@ -5,9 +5,9 @@ export function PortfolioHero() {
     <section id="top" className="portfolio-hero portfolio-wrap">
       <div className="portfolio-hero__eyebrow">Product designer</div>
       <h1>
-        Проектирую продукты,
-        <br />
-        которые помогают <em>двигаться дальше.</em>
+        <span className="portfolio-hero__line"><span>Проектирую продукты,</span></span>
+        <span className="portfolio-hero__line"><span>которые помогают</span></span>
+        <span className="portfolio-hero__line"><span><em>двигаться дальше.</em></span></span>
       </h1>
       <div className="portfolio-hero__meta">
         <div>
