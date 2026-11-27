@@ -20,15 +20,6 @@ function CaseVisual({ data }: { data: Case }) {
   if (media.kind === "phone-single") {
     return <img className="portfolio-case-visual__phone" src={media.src} alt="" />;
   }
-  if (media.kind === "phones-trio") {
-    return (
-      <div className="portfolio-case-visual__phones" aria-hidden>
-        <img src="/cases/aff-phone-1.png" alt="" />
-        <img src="/cases/aff-phone-2.png" alt="" />
-        <img src="/cases/aff-phone-3.png" alt="" />
-      </div>
-    );
-  }
   if (media.kind === "laptop") {
     return <img className="portfolio-case-visual__image" src={media.src} alt="" />;
   }
@@ -39,6 +30,10 @@ function CaseVisual({ data }: { data: Case }) {
 }
 
 function Section({ section }: { section: CaseSection }) {
+  if (section.type === "html") {
+    return <div className="portfolio-html" dangerouslySetInnerHTML={{ __html: section.html }} />;
+  }
+
   if (section.type === "two-column") {
     return (
       <div className="portfolio-story-block portfolio-story-block--split">
@@ -150,7 +145,7 @@ export function PortfolioCase({ data, index }: { data: Case; index: number }) {
     >
       <motion.div className="portfolio-case__head" variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}>
         <div className="portfolio-case__eyebrow">[0{index + 1}] {data.title}</div>
-        <h2>{data.intro.split(".")[0]}.</h2>
+        <h2>{data.title}</h2>
         <p>{data.intro}</p>
         <dl className="portfolio-case__meta">
           <div><dt>Проект</dt><dd>{data.tagline}</dd></div>

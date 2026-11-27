@@ -99,6 +99,19 @@ function ResultBlock({ section }: { section: ResultSection }) {
 }
 
 export function CaseSection({ section }: { section: Section }) {
+  if (section.type === "html") {
+    return (
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-15%" }}
+        className="case-html mx-auto w-full max-w-[1060px] px-6 py-8"
+        dangerouslySetInnerHTML={{ __html: section.html }}
+      />
+    );
+  }
+
   if (section.type === "two-column") {
     return (
       <motion.div

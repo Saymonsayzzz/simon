@@ -85,34 +85,6 @@ function CardMedia({ data }: { data: Case }) {
     );
   }
 
-  if (media.kind === "phones-trio") {
-    return (
-      <div className="pointer-events-none absolute inset-x-0 -bottom-12 z-0 flex h-[600px] items-end justify-center overflow-hidden">
-        <div aria-hidden className="absolute inset-x-2 bottom-2 top-0 rounded-[24px] bg-surface-2" />
-        <div className="absolute bottom-[-80px] left-1/2 h-[423px] w-[318px] -translate-x-1/2 rounded-[100px] bg-[radial-gradient(circle_at_50%_60%,rgba(84,150,249,0.6),rgba(255,255,255,0.12)_60%,transparent_70%)] blur-[80px]" />
-        <div className="relative h-[560px] w-[560px] shrink-0 origin-bottom scale-[0.55] sm:scale-[0.65] md:scale-100">
-          {/* eslint-disable @next/next/no-img-element */}
-          <img
-            src="/cases/aff-phone-1.png"
-            alt=""
-            className="absolute left-0 top-[33px] h-[502px] w-[278px] -rotate-[5.5deg] object-contain"
-          />
-          <img
-            src="/cases/aff-phone-2.png"
-            alt=""
-            className="absolute right-0 top-[30px] h-[505px] w-[286px] rotate-[6deg] object-contain"
-          />
-          <img
-            src="/cases/aff-phone-3.png"
-            alt=""
-            className="absolute left-1/2 top-[14px] h-[482px] w-[233px] -translate-x-1/2 object-contain"
-          />
-          {/* eslint-enable @next/next/no-img-element */}
-        </div>
-      </div>
-    );
-  }
-
   if (media.kind === "phone-single") {
     return (
       <div className="pointer-events-none absolute inset-x-0 -bottom-10 z-0 flex h-[380px] items-end justify-center md:h-[480px]">

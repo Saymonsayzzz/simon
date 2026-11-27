@@ -116,6 +116,335 @@ html.lenis body {
   }
 }
 
+/* Case content imported from the supplied portfolio draft. */
+.case-html,
+.portfolio-html {
+  color: var(--foreground);
+}
+
+.case-html > *,
+.portfolio-html > * {
+  max-width: 100%;
+}
+
+.case-html .meta,
+.portfolio-html .meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 42px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-html .meta > div,
+.portfolio-html .meta > div {
+  padding: 18px 18px 20px 0;
+}
+
+.case-html .k,
+.portfolio-html .k,
+.case-html .lbl,
+.portfolio-html .lbl,
+.case-html .src,
+.portfolio-html .src,
+.case-html .mono,
+.portfolio-html .mono {
+  color: var(--muted-2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.case-html .v,
+.portfolio-html .v {
+  margin-top: 8px;
+  color: var(--foreground);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.case-html .cards,
+.portfolio-html .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 26px 0 42px;
+}
+
+.case-html .card,
+.portfolio-html .card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.case-html .card .v,
+.portfolio-html .card .v {
+  color: var(--accent);
+  font-family: var(--font-display), var(--font-inter), sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1;
+}
+
+.case-html .c,
+.portfolio-html .c {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.case-html figure,
+.portfolio-html figure {
+  margin: 34px 0 58px;
+}
+
+.case-html figure img,
+.portfolio-html figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  background: var(--surface-2);
+}
+
+.case-html figcaption,
+.portfolio-html figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.case-html h2,
+.portfolio-html h2 {
+  margin: 70px 0 24px;
+  color: var(--foreground);
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.case-html h3,
+.portfolio-html h3 {
+  margin: 62px 0 18px;
+  color: var(--foreground);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.case-html h4,
+.portfolio-html h4 {
+  margin: 0 0 8px;
+  color: var(--foreground);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.case-html p,
+.portfolio-html p,
+.case-html li,
+.portfolio-html li {
+  color: var(--foreground);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.case-html .big,
+.portfolio-html .big {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 20px;
+}
+
+.case-html .num,
+.portfolio-html .num {
+  color: var(--accent);
+  font-family: var(--font-display), var(--font-inter), sans-serif;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1;
+}
+
+.case-html .kv,
+.portfolio-html .kv {
+  margin: 30px 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-html blockquote,
+.portfolio-html blockquote {
+  margin: 36px 0;
+  padding: 24px 0 24px 24px;
+  border-left: 2px solid var(--accent);
+  color: var(--foreground);
+}
+
+.case-html blockquote p,
+.portfolio-html blockquote p {
+  margin: 8px 0 0;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.25;
+}
+
+.case-html .phase,
+.portfolio-html .phase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 60px 0 26px;
+}
+
+.case-html .phase .on,
+.portfolio-html .phase .on {
+  color: var(--accent);
+}
+
+.case-html .tiles,
+.portfolio-html .tiles,
+.case-html .bets,
+.portfolio-html .bets,
+.case-html .nnc,
+.portfolio-html .nnc {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 26px 0 40px;
+}
+
+.case-html .tile,
+.portfolio-html .tile,
+.case-html .bet,
+.portfolio-html .bet,
+.case-html .nnc > div,
+.portfolio-html .nnc > div {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
+.case-html .tile p,
+.portfolio-html .tile p,
+.case-html .bet .st,
+.portfolio-html .bet .st,
+.case-html .bet .kn,
+.portfolio-html .bet .kn {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.case-html .bet .st,
+.portfolio-html .bet .st {
+  margin: 12px 0;
+  color: var(--foreground);
+  font-size: 18px;
+}
+
+.case-html .bet .kn,
+.portfolio-html .bet .kn {
+  color: var(--muted);
+}
+
+.case-html .bet .kn b,
+.portfolio-html .bet .kn b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.case-html table,
+.portfolio-html table {
+  width: 100%;
+  margin: 26px 0 48px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.case-html th,
+.portfolio-html th,
+.case-html td,
+.portfolio-html td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.case-html th,
+.portfolio-html th {
+  color: var(--muted-2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.case-html .tl td:first-child,
+.portfolio-html .tl td:first-child {
+  width: 30%;
+  color: var(--muted-2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+
+.case-html .src,
+.portfolio-html .src {
+  margin-top: -26px;
+}
+
+.case-html .thanks,
+.portfolio-html .thanks {
+  margin: 70px 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .case-html .meta,
+  .portfolio-html .meta,
+  .case-html .cards,
+  .portfolio-html .cards,
+  .case-html .tiles,
+  .portfolio-html .tiles,
+  .case-html .bets,
+  .portfolio-html .bets,
+  .case-html .nnc,
+  .portfolio-html .nnc {
+    grid-template-columns: 1fr;
+  }
+
+  .case-html .meta > div,
+  .portfolio-html .meta > div {
+    padding: 14px 0;
+  }
+
+  .case-html table,
+  .portfolio-html table {
+    display: block;
+    overflow-x: auto;
+    white-space: normal;
+  }
+
+  .case-html th,
+  .portfolio-html th,
+  .case-html td,
+  .portfolio-html td {
+    min-width: 160px;
+  }
+}
+
 /* Long-form portfolio presentation */
 .portfolio-page {
   position: relative;
