@@ -59,7 +59,7 @@ export const cases: Case[] = [
       variant: "wide",
       tags: ["Engagement", "Retention", "Feature concept"],
       description: "Семидневная серия, в которой кешбек становится поводом зайти завтра.",
-      media: { kind: "phone-single", src: "/cases/imported-challenge-01.png" },
+      media: { kind: "laptop", src: "/cases/imported-challenge-01.png" },
     },
     sections: [html("challenge")],
   },
